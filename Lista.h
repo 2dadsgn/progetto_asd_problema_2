@@ -82,7 +82,6 @@ public:
 
     void insert_cella(T* insieme);
 
-
     Lista();
 
     //inizializzazione linked list con un cella che punta ad un insieme

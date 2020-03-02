@@ -17,7 +17,7 @@ using namespace std;
 
 class Grafo {
 private:
-    vector <Lista <Vertice > > lista_adiacenza;
+    vector <Lista <Vertice> > lista_adiacenza;
     vector <Edge *> lista_archi;
     int partition( int p, int r);
     int c=0;
