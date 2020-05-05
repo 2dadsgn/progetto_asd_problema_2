@@ -30,6 +30,7 @@ int Nodo<I>::get_key(){
     return this->key;
 }
 
+//ritorna puntatore al prossimo elelemnnto
 template <typename I>
 Nodo<I>* Nodo<I>::get_next(){
     return this->next;
@@ -92,12 +93,17 @@ Nodo<Insieme>* Insieme::get_head(){
 Nodo<Insieme>* Insieme::get_tail(){
     return this->tail;
 }
+//imposta il puntatore alla testa dell'insieme
 void Insieme::set_head(Nodo<Insieme>* input){
     this->head = input;
 }
+
+//imposta la coda del'insieme
 void Insieme::set_tail(Nodo<Insieme>* input){
     this->tail = input;
 }
+
+//impsota il rango
 void Insieme::set_rank(int input){
     this->rank = input;
 }
@@ -110,7 +116,7 @@ Insieme::Insieme(int key_in){
     this->set_tail(this->get_head());
     head->set_key(key_in);
     head->set_insieme(this);
-    this->set_rank(0);
+    this->set_rank(1);
 }
 
 //costruttore
@@ -118,7 +124,7 @@ Insieme::Insieme(){
     this->set_head(new Nodo <Insieme>);
     this->set_tail(this->get_head());
     head->set_insieme(this);
-    this->set_rank(0);
+    this->set_rank(1);
 }
 
 

@@ -26,16 +26,19 @@ public:
 
 };
 
+//imposta il tipo data_in
 template<class T>
 void Cella<T>::set_data(T *datain) {
     this->data = datain;
 }
 
+//imposta il puntatore al prossimo elemento
 template<class T>
 void Cella<T>::set_next(Cella<T> *listain) {
     this->next = listain;
 }
 
+//imposta il puntatore all'elemento precedente
 template<class T>
 void Cella<T>::set_prev(Cella<T> *listain) {
     this->prev = listain;

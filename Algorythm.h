@@ -37,7 +37,7 @@ private:
     bool get_input();
 
     //kruskal
-    int kruskal();
+    void kruskal();
 
     //findset
     Cella <Insieme>* find_set(int u);
@@ -140,7 +140,6 @@ bool Algorythm::get_input(){
         //numero v
         G.insert_vertice(v-1,u,w);
     }
-
     file.close();
     return true;
 }
@@ -209,9 +208,10 @@ void Algorythm::union_nodes(Cella <Insieme>* u, Cella <Insieme>* v){
 
         //elimino s2
         this->insiemi_disgiunti.delete_cella(s2);
+
+        s1->set_rank(s1->get_rank()+s2->get_rank());
     }
     else{
-
         //allora unisci s1 ad s2, radice dell'albero unito sarà root di s2
         while(ptr_1 != nullptr){
             //tengo traccia dell'ultimo elemento con s1
@@ -224,10 +224,8 @@ void Algorythm::union_nodes(Cella <Insieme>* u, Cella <Insieme>* v){
         s2->set_tail(ptr_2);
         ptr_2->set_next(nullptr);
 
-        //aumento rank di s1
-        if(s1->get_rank() == s2->get_rank()){
-            s2->set_rank(s2->get_rank()+1);
-        }
+        //aumento rank di s2
+        s2->set_rank(s2->get_rank()+s1->get_rank());
         //elimino s1
         this->insiemi_disgiunti.delete_cella(s1);
     }
@@ -236,10 +234,8 @@ void Algorythm::union_nodes(Cella <Insieme>* u, Cella <Insieme>* v){
 }
 
 
-
-
 //algoritmo di kruskal oer calcolare albero ricoprente minimo
-int Algorythm::kruskal(){
+void Algorythm::kruskal(){
     int c=0;
     //cout<<c++<<endl;
     vector <Edge> insieme_archi_mst;
@@ -255,7 +251,7 @@ int Algorythm::kruskal(){
     //ordina archi in senso non decrescente
     G.quicksort(0,G.get_numero_archi()-1);
 
-   // cout<<c++<<endl;
+   //cout<<c++<<endl;
 
 
     for(int i=0;i<G.get_numero_archi();i++){
@@ -279,15 +275,13 @@ int Algorythm::kruskal(){
         }
 
     }
-
-    return costo_ricostruzione;
 }
 
 
 void Algorythm::risultato() {
     cout<<"I ponti da ricostruire sono i seguenti: "<< endl;
     for(auto x : this->BtB){
-        cout<<x->get_u()<<" -> "<<x->get_v()<<endl;
+        cout<<x->get_u()<<" -> "<<x->get_v()<<" ( "<< x->get_w()<<" )"<<endl;
     }
     cout<<"Il costo totale dei lavori sarà: "<< endl<<this->costo_totale_ricostruzione;
 }

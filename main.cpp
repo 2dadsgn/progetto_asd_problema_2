@@ -4,7 +4,7 @@
 #include "Algorythm.h"
 
 int main() {
-    Algorythm prova("file.txt");
+    Algorythm prova("file2.txt");
     prova.risultato();
 }
 

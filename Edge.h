@@ -5,7 +5,7 @@
 #ifndef PROGETTO_ASD_PROBLEMA_2_EDGE_H
 #define PROGETTO_ASD_PROBLEMA_2_EDGE_H
 
-//classe arco facente parte del Grafo E appartente a G
+//classe arco facente parte del Grafo, E appartenente a G
 class Edge {
 private:
     int u;
@@ -31,7 +31,7 @@ public:
 
 
 
-//funzioni dichiarate esternamente
+//-------------funzioni dichiarate esternamente------------------------
 
 //imposta i due vertici e il peso
 void Edge::set_edge(int uin, int vin, int win) {

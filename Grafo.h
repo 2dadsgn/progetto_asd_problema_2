@@ -14,7 +14,7 @@
 using namespace std;
 
 
-
+//-----------------------------classe grafo--------------------------
 class Grafo {
 private:
     vector <Lista <Vertice> > lista_adiacenza;
